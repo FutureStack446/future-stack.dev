@@ -10,6 +10,7 @@ import { PageTransition } from "@/app/components/PageTransition";
 import { CalendarDays, Clock, ArrowRight, Search, Mail, Tag as TagIcon, X, SortAsc, SortDesc } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { BlogPost } from "@/app/types"; // Import BlogPost type
 
 export default function BlogPage() {
   const featuredPost = blogPosts.find((post) => post.featured) || blogPosts[0];
@@ -24,7 +25,7 @@ export default function BlogPage() {
     return Array.from(tags);
   }, []);
 
-  const filteredPosts = useMemo(() => {
+  const filteredPosts: BlogPost[] = useMemo(() => {
     return blogPosts
       .filter((post) => {
         const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 

@@ -1,4 +1,5 @@
 import React from "react";
+import { LucideProps } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -13,15 +14,15 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  icon: string;
+  icon: React.ComponentType<LucideProps>;
   level: number;
   category: string;
 }
 
 export interface Service {
   title: string;
-  description: string;
-  icon: string;
+  description: string; // Assuming description is a string
+  icon: React.ComponentType<LucideProps>; // Changed from string to React.ComponentType<LucideProps>
   features: string[];
 }
 

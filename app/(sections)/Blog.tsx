@@ -5,6 +5,7 @@ import { ArrowRight, Clock, Calendar, BookOpen } from "lucide-react";
 import { SectionWrapper } from "@/app/components/SectionWrapper";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BlogPost } from "@/app/types"; // Import BlogPost type
 import Link from "next/link"; // Added this import
 import { blogPosts } from "@/app/lib/data";
 import Image from "next/image";
@@ -45,7 +46,7 @@ export function Blog() {
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-3 gap-8">
-          {blogPosts.map((post: any, index: number) => (
+          {blogPosts.map((post: BlogPost, index: number) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
