@@ -1,0 +1,32 @@
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://futurestack.dev/sitemap.xml
+
+# Disallow admin or private pages (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Crawl-delay for rate limiting
+Crawl-delay: 1
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Bingbot specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+# Allow images
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Allow mobile
+User-agent: Googlebot-Mobile
+Allow: /

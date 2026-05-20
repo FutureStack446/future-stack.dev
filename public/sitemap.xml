@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage / Landing Page -->
+  <url>
+    <loc>https://futurestack.dev</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://futurestack.dev/images/logo.jpg</image:loc>
+      <image:title>FutureStack Logo</image:title>
+      <image:caption>Masroor Ibrahim - FutureStack Portfolio Logo</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Landing Page -->
+  <url>
+    <loc>https://futurestack.dev/landing</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Projects (Individual project pages if created later) -->
+  <url>
+    <loc>https://futurestack.dev/#projects</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About Section -->
+  <url>
+    <loc>https://futurestack.dev/#about</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Skills Section -->
+  <url>
+    <loc>https://futurestack.dev/#skills</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Services Section -->
+  <url>
+    <loc>https://futurestack.dev/#services</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://futurestack.dev/#contact</loc>
+    <lastmod>2024-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
