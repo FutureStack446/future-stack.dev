@@ -58,18 +58,6 @@ cd futurestack-portfolio
 npm install
 ```
 
-3. Create environment variables:
-```bash
-cp .env.example .env.local
-```
-
-4. Configure your environment variables:
-```env
-EMAILJS_SERVICE_ID=your_service_id_here
-EMAILJS_TEMPLATE_ID=your_template_id_here
-EMAILJS_PUBLIC_KEY=your_public_key_here
-CONTACT_EMAIL=your_email@example.com
-```
 
 5. Run the development server:
 ```bash
