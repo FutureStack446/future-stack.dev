@@ -60,6 +60,7 @@ export interface NavLink {
   name: string;
   href: string;
   icon?: React.ComponentType<any>;
+  translationKey?: string;
 }
 
 export interface FaqItem {

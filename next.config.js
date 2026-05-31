@@ -28,19 +28,31 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion', 'next-themes'],
   },
   async headers() {
+    const isProduction = process.env.NODE_ENV === 'production';
+    const scriptSrc = [
+      "'self'",
+      !isProduction && "'unsafe-eval'",
+      "'unsafe-inline'",
+      "https://www.googletagmanager.com",
+      "https://cdn.emailjs.com",
+      "https://js.emailjs.com",
+    ]
+      .filter(Boolean)
+      .join(' ');
+
     return [
       {
         source: '/(.*)',
         headers: [
           {
             key: 'Content-Security-Policy',
-            // Improved CSP - removed unsafe-eval and unsafe-inline for better security
+            // Improved CSP - allow unsafe-eval only in development for React Fast Refresh
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://cdn.emailjs.com https://js.emailjs.com",
+              `script-src ${scriptSrc}`,
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' blob: data: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
-              "connect-src 'self' https://www.google-analytics.com https://api.emailjs.com https://api.npws.io",
+              "connect-src 'self' https://www.google-analytics.com https://api.emailjs.com",
               "font-src 'self' data: https://fonts.gstatic.com",
               "object-src 'none'",
               "frame-ancestors 'none'",

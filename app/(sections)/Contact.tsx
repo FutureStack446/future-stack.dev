@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { personalInfo, socialLinks } from "@/app/lib/data";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Contact() {
+  const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -72,7 +74,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block"
           >
-            Get In Touch
+            {t('contact.title')}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +83,7 @@ export function Contact() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Let&apos;s Work Together
+            {t('contact.subtitle')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -90,7 +92,7 @@ export function Contact() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Have a project in mind? I&apos;d love to hear about it. Send me a message and let&apos;s create something amazing.
+            {t('contact.description')}
           </motion.p>
         </div>
 
@@ -101,9 +103,9 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-bold mb-6">{t('contact.info.title')}</h3>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              I&apos;m currently available for freelance projects, full-time positions, and consulting.
+              {t('contact.info.description')}
             </p>
 
             <div className="flex items-center gap-3 mb-8">
@@ -112,14 +114,14 @@ export function Contact() {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
               </div>
               <span className="text-sm font-medium text-green-600 dark:text-green-400 uppercase tracking-wider">
-                Available for new projects
+                {t('contact.available')}
               </span>
             </div>
 
             <div className="flex items-center gap-2 mb-8 p-3 rounded-lg bg-secondary/50 border border-border w-fit">
               <Clock className="w-4 h-4 text-primary" />
               <span className="text-sm text-muted-foreground">
-                Local Time: {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} (GMT+1)
+                Local Time: {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </span>
             </div>
 
@@ -149,7 +151,7 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
+                    <p className="text-sm text-muted-foreground">{t('contact.card.email')}</p>
                   <a href={`mailto:${personalInfo.email}`} className="font-medium hover:text-primary transition-colors">{personalInfo.email}</a>
                 </div>
               </motion.div>
@@ -159,24 +161,24 @@ export function Contact() {
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <p className="text-sm text-muted-foreground">{t('contact.card.phone')}</p>
                   <a href={`tel:${personalInfo.phone}`} className="font-medium hover:text-primary transition-colors">{personalInfo.phone}</a>
                 </div>
               </motion.div>
 
               <motion.div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/20 transition-all duration-300" whileHover={{ x: 5 }}>
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
+                  <Sparkles className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">{personalInfo.location}</p>
+                  <p className="text-sm text-muted-foreground">{t('contact.card.collaboration')}</p>
+                  <p className="font-medium">Remote-friendly and ready to work with teams anywhere</p>
                 </div>
               </motion.div>
             </div>
 
             <div>
-              <p className="text-sm text-muted-foreground mb-4">Follow me on</p>
+              <p className="text-sm text-muted-foreground mb-4">{t('contact.followMe')}</p>
               <div className="flex gap-3">
                 {socialLinks.map((link, index) => {
                   const IconComponent = link.icon || ExternalLink;
@@ -190,15 +192,15 @@ export function Contact() {
             </div>
 
             <div className="mt-10 p-6 rounded-3xl bg-primary/5 border border-primary/10">
-              <h4 className="text-xl font-bold mb-3">Need help preparing your brief?</h4>
+              <h4 className="text-xl font-bold mb-3">{t('contact.helpTitle')}</h4>
               <p className="text-sm text-muted-foreground mb-4">
-                Use the form below to tell me about your goals, budget range, and timeline. The more detail you share, the faster I can send a tailored proposal.
+                {t('contact.helpBody')}
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
-                <li>Project goal or business challenge</li>
-                <li>Target audience or customer profile</li>
-                <li>Preferred launch timeline</li>
-                <li>Any existing branding or website links</li>
+                <li>{t('contact.help.list.goal')}</li>
+                <li>{t('contact.help.list.audience')}</li>
+                <li>{t('contact.help.list.timeline')}</li>
+                <li>{t('contact.help.list.branding')}</li>
               </ul>
             </div>
           </motion.div>
@@ -217,32 +219,32 @@ export function Contact() {
                 </div>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">Name</label>
-                    <Input id="name" name="name" placeholder="John Doe" value={formData.name} onChange={handleChange} required className="bg-background/50" />
+                    <label htmlFor="name" className="text-sm font-medium">{t('contact.form.name')}</label>
+                    <Input id="name" name="name" placeholder={t('contact.form.placeholder.name')} value={formData.name} onChange={handleChange} required className="bg-background/50" />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">Email</label>
-                    <Input id="email" name="email" type="email" placeholder="john@example.com" value={formData.email} onChange={handleChange} required className="bg-background/50" />
+                    <label htmlFor="email" className="text-sm font-medium">{t('contact.form.email')}</label>
+                    <Input id="email" name="email" type="email" placeholder={t('contact.form.placeholder.email')} value={formData.email} onChange={handleChange} required className="bg-background/50" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                  <Input id="subject" name="subject" placeholder="Project Inquiry" value={formData.subject} onChange={handleChange} required className="bg-background/50" />
+                  <label htmlFor="subject" className="text-sm font-medium">{t('contact.form.subject')}</label>
+                  <Input id="subject" name="subject" placeholder={t('contact.form.placeholder.subject')} value={formData.subject} onChange={handleChange} required className="bg-background/50" />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <Textarea id="message" name="message" placeholder="Tell me about your project..." value={formData.message} onChange={handleChange} required rows={6} className="bg-background/50" />
+                  <label htmlFor="message" className="text-sm font-medium">{t('contact.form.message')}</label>
+                  <Textarea id="message" name="message" placeholder={t('contact.form.placeholder.message')} value={formData.message} onChange={handleChange} required rows={6} className="bg-background/50" />
                 </div>
 
                 <Button type="submit" size="lg" variant="gradient" className="w-full gap-2" disabled={isSubmitting || isSubmitted}>
                   {isSubmitting ? (
-                    <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                    <><Loader2 className="w-4 h-4 animate-spin" /> {t('contact.sending')}</>
                   ) : isSubmitted ? (
-                    <><CheckCircle className="w-4 h-4" /> Message Sent!</>
+                    <><CheckCircle className="w-4 h-4" /> {t('contact.sent')}</>
                   ) : (
-                    <><Send className="w-4 h-4" /> Send Message</>
+                    <><Send className="w-4 h-4" /> {t('contact.send')}</>
                   )}
                 </Button>
 

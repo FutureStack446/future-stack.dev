@@ -7,7 +7,7 @@ import WhatsAppFloating from "@/app/components/WhatsAppFloating";
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { ThemeProvider } from "next-themes";
-import { LanguageProvider } from "@/app/context/LanguageContext";
+import { LanguageProvider } from "./context/LanguageContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: "Masroor Ibrahim | Expert Web Developer in Nigeria - FutureStack",
+    default: "Masroor Ibrahim | FutureStack - Web Designer & Developer",
     template: "%s | FutureStack",
   },
-  description: "Looking for a top-rated web developer in Nigeria? Masroor Ibrahim at FutureStack builds high-performance, SEO-optimized websites for brands in Lagos, Abuja, and beyond. Specializing in Next.js, React, and E-commerce.",
+  description: "FutureStack is a portfolio and web development studio building high-performance websites, modern applications, and polished digital experiences using Next.js, React, and Tailwind CSS.",
   alternates: {
     canonical: "/",
   },
@@ -52,13 +52,11 @@ export const metadata: Metadata = {
     "Masroor Ibrahim",
     "FutureStack",
     "Web Designer",
-    "Web Developer in Nigeria",
-    "Lagos Web Developer",
-    "Abuja Web Developer",
-    "Nigeria Web Development Company",
+    "Web Developer",
     "React Developer",
     "Next.js Developer",
-    "Web Designer Nigeria",
+    "Web Design Portfolio",
+    "UI/UX Designer",
     "E-commerce Developer",
   ],
   authors: [{ name: "Masroor Ibrahim" }],
@@ -68,8 +66,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://futurestack.dev",
-    title: "Masroor Ibrahim | Expert Web Developer in Nigeria - FutureStack",
-    description: "Premium web design and development services. Crafting digital experiences that convert.",
+    title: "Masroor Ibrahim | FutureStack - Web Designer & Developer",
+    description: "FutureStack is a portfolio and web development studio building high-performance digital experiences that help businesses grow.",
     siteName: "FutureStack",
     images: [
       {
@@ -82,8 +80,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Masroor Ibrahim | Expert Web Developer in Nigeria - FutureStack",
-    description: "Premium web design and development services. Crafting digital experiences that convert.",
+    title: "Masroor Ibrahim | FutureStack - Web Designer & Developer",
+    description: "FutureStack is a portfolio and web development studio building high-performance websites and digital experiences.",
     images: ["/images/logo.jpg"],
     creator: "@masrooribr81901",
   },
@@ -126,11 +124,6 @@ function StructuredData() {
       telephone: personalInfo.phone,
       email: personalInfo.email,
       contactType: "Customer Service",
-      areaServed: "Nigeria",
-    },
-    address: {
-      "@type": "PostalAddress",
-      "addressCountry": "NG",
     },
     knowsAbout: [
       "Web Development",

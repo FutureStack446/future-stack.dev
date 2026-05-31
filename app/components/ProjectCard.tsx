@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/app/types";
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 interface ProjectCardProps {
   project: Project;
@@ -14,6 +15,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -61,7 +63,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 transition={{ duration: 0.3 }}
               >
                 <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground glow-primary">
-                  Featured
+                  {t('projects.featuredLabel')}
                 </Badge>
               </motion.div>
             )}
@@ -88,7 +90,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                   }}
                 >
                   <Maximize2 className="w-4 h-4" />
-                  View Details
+                  {t('projects.viewDetails')}
                 </Button>
               </motion.div>
             </motion.div>
@@ -177,7 +179,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                   <div className="mb-6">
                     {project.featured && (
                       <Badge className="bg-primary text-primary-foreground mb-4">
-                        Featured Project
+                        {t('projects.featuredProject')}
                       </Badge>
                     )}
                     <h2 className="text-3xl font-bold mb-4">{project.title}</h2>
@@ -187,7 +189,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                   </div>
 
                   <div className="mb-8">
-                    <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">Technologies Used</h4>
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">{t('projects.techUsed')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
                         <Badge key={tag} variant="secondary" className="px-3 py-1">
@@ -206,7 +208,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                       >
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-4 h-4" />
-                          Live Demo
+                          {t('projects.live')}
                         </a>
                       </Button>
                     )}
@@ -219,7 +221,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                       >
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <Github className="w-4 h-4" />
-                          View Code
+                          {t('projects.code')}
                         </a>
                       </Button>
                     )}

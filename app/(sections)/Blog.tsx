@@ -7,10 +7,13 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BlogPost } from "@/app/types"; // Import BlogPost type
 import Link from "next/link"; // Added this import
+import { useLanguage } from "../context/LanguageContext";
 import { blogPosts } from "@/app/lib/data";
 import Image from "next/image";
 
 export function Blog() {
+  const { t } = useLanguage();
+
   return (
     <SectionWrapper id="blog" className="relative bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +25,7 @@ export function Blog() {
             viewport={{ once: true }}
             className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block"
           >
-            Blog
+            {t('blog.title')}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +34,7 @@ export function Blog() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Latest Insights
+            {t('blog.subtitle')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -40,7 +43,7 @@ export function Blog() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            Thoughts on design, development, and the future of technology for businesses.
+            {t('blog.description')}
           </motion.p>
         </div>
 
@@ -136,7 +139,7 @@ export function Blog() {
             <Button asChild className="gap-2">
               <Link href="/blog">
                 <BookOpen className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium">View All Articles</span>
+                <span className="text-sm font-medium">{t('blog.viewAll')}</span>
                 <ArrowRight className="w-4 h-4 text-primary" />
               </Link>
             </Button>

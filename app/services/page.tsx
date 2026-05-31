@@ -5,6 +5,8 @@ import { Services } from "@/app/(sections)/Services";
 import { Process } from "@/app/(sections)/Process";
 import { Faq } from "@/app/(sections)/Faq";
 import { Contact } from "@/app/(sections)/Contact";
+import { PageTransition } from "@/app/components/PageTransition";
+import HeroSection from "@/app/components/HeroSection";
 import Link from "next/link";
 
 import { 
@@ -280,36 +282,13 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div
-            initial={{ opacity: 1, y: 0 }} // Ensure visible by default
-            animate={{ opacity: 1, y: 0 }} // Ensure visible by default
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-              My Expertise
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
-              Solutions for the{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                Digital Age
-              </span>
-            </h1>
-            <motion.p 
-              initial={{ opacity: 1 }} // Ensure visible by default
-              animate={{ opacity: 1 }} // Ensure visible by default
-              transition={{ delay: 0.3 }}
-              className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2"
-            >
-              Empowering your brand with cutting-edge technology and design. 
-              Discover how FutureStack can help you scale your digital presence effectively.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSection
+        title="Bespoke Development, Designed to Convert"
+        subtitle="Solutions crafted for brands that need a polished digital presence and measurable growth."
+        description="From launch-ready websites to high-performance web applications, every project is built to impress visitors and drive business value."
+        labels={["Custom web products", "E-commerce growth", "Conversion-focused design"]}
+        variant="sparkle"
+      />
 
       {/* Main Services Grid */}
       <Services />

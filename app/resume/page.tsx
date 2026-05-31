@@ -27,7 +27,7 @@ export default function ResumePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-10 sm:py-14 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-transparent" />
         
         {/* Animated background elements */}
@@ -43,7 +43,7 @@ export default function ResumePage() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl"
+            className="absolute top-0 right-0 w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] bg-primary/5 rounded-full blur-3xl"
           />
         </div>
 
@@ -66,15 +66,15 @@ export default function ResumePage() {
               </span>
             </motion.div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               {personalInfo.name}
             </h1>
 
-            <p className="text-xl md:text-2xl text-primary font-medium mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-primary font-medium mb-6">
               {personalInfo.title}
             </p>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
               Crafting digital experiences with 4+ years of expertise in modern web technologies,
               UI/UX design, and e-commerce solutions.
             </p>
@@ -103,11 +103,11 @@ export default function ResumePage() {
               transition={{ delay: 0.5 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <Button onClick={handlePrint} className="gap-2" size="lg">
+              <Button onClick={handlePrint} className="gap-2 w-full sm:w-auto" size="lg">
                 <Download className="w-4 h-4" /> 
                 Download PDF
               </Button>
-              <Button variant="outline" asChild size="lg">
+              <Button variant="outline" asChild size="lg" className="w-full sm:w-auto">
                 <Link href="/">
                   <ArrowLeft className="w-4 h-4" /> 
                   Back to Portfolio
@@ -142,11 +142,10 @@ export default function ResumePage() {
           {/* Header */}
           <header className="text-center space-y-3 md:space-y-4">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">{personalInfo.name}</h1>
-            <p className="text-lg md:text-xl text-primary font-medium">{personalInfo.title}</p>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-xs sm:text-sm text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-primary font-medium">{personalInfo.title}</p>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 text-[10px] sm:text-xs text-muted-foreground">
               <span className="flex items-center gap-1"><Mail className="w-3 h-3 md:w-4 md:h-4" /> {personalInfo.email}</span>
               <span className="flex items-center gap-1"><Phone className="w-3 h-3 md:w-4 md:h-4" /> {personalInfo.phone}</span>
-              <span className="flex items-center gap-1">{personalInfo.location}</span>
             </div>
             <div className="flex justify-center gap-4 pt-2 print:hidden">
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
@@ -171,7 +170,7 @@ export default function ResumePage() {
           {/* Skills */}
           <section className="space-y-3 md:space-y-4">
             <h2 className="text-xl md:text-2xl font-bold border-b border-border pb-2">Technical Skills</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {Array.from(new Set(skills.map(s => s.category))).map(category => (
                 <div key={category} className="space-y-2">
                   <h3 className="font-semibold text-primary text-sm md:text-base">{category}</h3>

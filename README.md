@@ -77,6 +77,25 @@ npm run dev
 1. Create a Google Analytics property
 2. Replace `GA_MEASUREMENT_ID` in `app/components/Analytics.tsx` with your measurement ID
 
+### Running Performance Audits (Lighthouse)
+
+This repo includes Lighthouse CI configuration and a GitHub Action to run automated audits.
+
+Local quick run:
+```bash
+npm ci
+npm run dev
+npm run audit:local
+```
+
+Run full audit (build + temporary server):
+```bash
+npm ci
+npm run audit:server
+```
+
+CI (GitHub): push to `main` or trigger the `Lighthouse CI` workflow in Actions. Reports are uploaded to temporary public storage by default.
+
 ### Deployment
 The app is optimized for deployment on Vercel or Netlify:
 

@@ -1,13 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring, useMotionValue, useAnimationFrame } from "framer-motion";
-import { useLanguage } from "@/app/context/LanguageContext";
-import { useEffect, useRef, useState } from "react";
+import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 interface HeroSectionProps {
   title: string;
   subtitle?: string;
   description?: string;
+  labels?: string[];
   showParticles?: boolean;
   variant?: 'default' | 'gradient' | 'sparkle';
 }
@@ -110,7 +110,7 @@ const AnimatedTitle = ({ text, delay = 0 }: { text: string; delay?: number }) =>
   const letters = text.split('');
   
   return (
-    <div className="inline-flex overflow-hidden">
+    <div className="inline-flex flex-wrap justify-center overflow-hidden break-words text-center">
       {letters.map((letter, i) => (
         <motion.span
           key={i}
@@ -131,34 +131,42 @@ const AnimatedTitle = ({ text, delay = 0 }: { text: string; delay?: number }) =>
 };
 
 // Gradient text with animation
-const GradientText = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <motion.span
-      className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-[length:200%_auto]"
-      initial={{ backgroundPosition: "0% 50%" }}
-      animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-      transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-    >
-      {children}
-    </motion.span>
-  );
-};
+const AnimatedCopy = ({ text, delay = 0 }: { text: string; delay?: number }) => (
+  <motion.p
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay, ease: "easeOut" }}
+    className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed"
+  >
+    {text}
+  </motion.p>
+);
+
+const AnimatedLabels = ({ labels }: { labels: string[] }) => (
+  <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm sm:text-base">
+    {labels.map((label, index) => (
+      <motion.span
+        key={label}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 + index * 0.1, ease: "easeOut" }}
+        className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 text-sm text-muted-foreground shadow-sm"
+      >
+        {label}
+      </motion.span>
+    ))}
+  </div>
+);
 
 export default function HeroSection({ 
   title, 
   subtitle, 
   description, 
+  labels,
   showParticles = true, 
   variant = 'default' 
 }: HeroSectionProps) {
-  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-  
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
@@ -184,7 +192,7 @@ export default function HeroSection({
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-[65vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden pt-14 sm:pt-20"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -199,7 +207,7 @@ export default function HeroSection({
         
         {/* Animated gradient orbs */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-primary/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             x: [0, 50, 0],
@@ -208,7 +216,7 @@ export default function HeroSection({
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 bg-primary/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             x: [0, -40, 0],
@@ -217,7 +225,7 @@ export default function HeroSection({
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary/5 rounded-full blur-2xl"
+          className="absolute top-1/2 left-1/2 w-52 h-52 sm:w-64 sm:h-64 bg-primary/5 rounded-full blur-2xl"
           animate={{
             scale: [1, 1.4, 1],
             x: [0, 30, 0],
@@ -235,8 +243,8 @@ export default function HeroSection({
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        style={{ y, opacity, scale, rotateX, rotateY, perspective: 1000 }}
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        style={{ rotateX: rotateX, rotateY: rotateY, perspective: 1000 }}
       >
         {/* Decorative elements */}
         <motion.div
@@ -278,40 +286,31 @@ export default function HeroSection({
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight">
-            {variant === 'sparkle' ? (
-              <GradientText>{title}</GradientText>
-            ) : (
-              <AnimatedTitle text={title} delay={0.5} />
-            )}
+          <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight break-words leading-tight mx-auto max-w-2xl ${
+            variant === 'sparkle' ? 'bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60' : ''
+          }`}>
+            <AnimatedTitle text={title} delay={0.5} />
           </h1>
         </motion.div>
 
         {/* Subtitle */}
         {subtitle && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-8"
-          >
-            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-              {subtitle}
-            </p>
+          <motion.div className="mb-8">
+            <AnimatedCopy text={subtitle} delay={0.6} />
           </motion.div>
         )}
 
         {/* Description */}
         {description && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mb-12"
-          >
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed">
-              {description}
-            </p>
+          <motion.div className="mb-12">
+            <AnimatedCopy text={description} delay={0.8} />
+          </motion.div>
+        )}
+
+        {/* Label chips */}
+        {labels && labels.length > 0 && (
+          <motion.div className="mb-12">
+            <AnimatedLabels labels={labels} />
           </motion.div>
         )}
 
@@ -328,7 +327,7 @@ export default function HeroSection({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="flex justify-center gap-8 md:gap-16"
+          className="hidden sm:flex justify-center gap-8 md:gap-16"
         >
           <motion.div
             animate={{ y: [0, -10, 0] }}

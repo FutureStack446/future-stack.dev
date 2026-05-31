@@ -9,10 +9,12 @@ import { ArrowRight, Sparkles, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useLanguage } from "../context/LanguageContext";
 
 export function LandingContent() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
@@ -110,7 +112,7 @@ export function LandingContent() {
                     : "bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
                 }`}
               >
-                Welcome to FutureStack
+                {t('landing.title')}
               </motion.h1>
 
               <motion.p
@@ -121,7 +123,7 @@ export function LandingContent() {
                   isDark ? "text-gray-300" : "text-gray-700"
                 }`}
               >
-                Where innovation meets imagination. Discover cutting-edge web solutions that transform your digital presence and captivate your audience.
+                {t('landing.description')}
               </motion.p>
 
               {/* Call to Action Button */}
@@ -140,7 +142,7 @@ export function LandingContent() {
                   }`}
                 >
                   <Sparkles className="w-6 h-6 animate-pulse" />
-                  Enter the Future
+                  {t('landing.talk')}
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
                 </Link>
               </motion.div>
@@ -154,11 +156,69 @@ export function LandingContent() {
                   isDark ? "text-gray-400" : "text-gray-500"
                 }`}
               >
-                Scroll or click to explore our world of possibilities
+                {t('landing.hint')}
               </motion.p>
             </div>
           </div>
       </div>
+
+      <section className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mx-auto max-w-3xl mb-12"
+          >
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
+              {t('landing.portfolio')}
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              {t('landing.title')}
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              {t('landing.description')}
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              {
+                title: t('landing.cards.services.title'),
+                description: t('landing.cards.services.desc'),
+              },
+              {
+                title: t('landing.cards.projects.title'),
+                description: t('landing.cards.projects.desc'),
+              },
+              {
+                title: t('landing.cards.insights.title'),
+                description: t('landing.cards.insights.desc'),
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className="rounded-3xl border border-border bg-card p-8 shadow-xl hover:border-primary/20 transition-all duration-300"
+              >
+                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/projects" prefetch={false} className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-all">
+              {t('landing.explore')}
+            </Link>
+            <Link href="/contact" prefetch={false} className="inline-flex items-center justify-center rounded-full border border-border bg-background px-8 py-4 text-base font-semibold text-foreground hover:border-primary hover:text-primary transition-all">
+              {t('landing.talk')}
+            </Link>
+          </div>
+        </div>
+      </section>
       </>
       )}
     </motion.div>

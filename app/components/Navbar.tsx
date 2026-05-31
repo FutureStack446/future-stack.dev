@@ -11,7 +11,7 @@ import { MagneticButton } from "@/app/components/MagneticButton";
 import { Download, Menu, X, Circle } from "lucide-react";
 import { ThemeToggle } from "@/app/components/ThemeToggle";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
-import { useLanguage } from "@/app/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -91,6 +91,7 @@ export function Navbar() {
           {navLinks?.map((link) => {
             const isActive = activeSection === link.href;
             const IconComponent = link.icon || Circle;
+            const label = link.translationKey ? t(link.translationKey) : link.name;
 
             return (
               <Link
@@ -117,7 +118,7 @@ export function Navbar() {
                 )} />
                 
                 <span className="relative z-10 hidden lg:block">
-                  {link.name}
+                  {label}
                 </span>
               </Link>
             );
@@ -132,7 +133,7 @@ export function Navbar() {
           <Link href={personalInfo?.resumeUrl || "#"} target="_blank" className="hidden md:inline-flex" prefetch={true}>
             <div className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-medium text-sm glow-primary hover:scale-105 transition-all">
               <Download className="w-4 h-4" />
-              Resume
+              {t('nav.resume')}
             </div>
           </Link>
 
@@ -161,6 +162,7 @@ export function Navbar() {
               {navLinks?.map((link) => {
                 const IconComponent = link.icon || Circle;
                 const isActive = activeSection === link.href;
+                const label = link.translationKey ? t(link.translationKey) : link.name;
 
                 return (
                   <Link
@@ -175,7 +177,7 @@ export function Navbar() {
                     )}
                   >
                     <IconComponent className="w-5 h-5" />
-                    {link.name}
+                    {label}
                   </Link>
                 );
               })}
@@ -199,7 +201,7 @@ export function Navbar() {
                 className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20"
               >
                 <Download className="w-5 h-5" />
-                Download Resume
+                {t('nav.resume')}
               </Link>
             </div>
           </motion.div>

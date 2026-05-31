@@ -44,7 +44,7 @@ AI Tools (80%), Automation (85%), Workflow Optimization (82%)
 *   **Links:** [GitHub](https://github.com/FutureStack446) | [Live](https://masibcollection.netlify.app/)
 
 **Timarh's Cuisines**
-*   **Description:** Artisanal bakery and pastry shop website featuring custom cakes, gourmet donuts, and savory meat pies. Online ordering with delivery to Abuja, Kaduna & Lagos.
+*   **Description:** Artisanal bakery and pastry shop website featuring custom cakes, gourmet donuts, and savory meat pies. Online ordering designed for local and regional food businesses.
 *   **Technologies:** Food Service, Ordering, Responsive, Local Business
 *   **Links:** [GitHub](https://github.com/FutureStack446) | [Live](https://timarhs-cuisines.netlify.app/)
 

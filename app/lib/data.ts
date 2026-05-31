@@ -21,13 +21,13 @@ export const personalInfo = {
 };
 
 export const navLinks: NavLink[] = [
-  { name: "Home", href: "/home", icon: Circle },
-  { name: "About", href: "/about", icon: User },
-  { name: "Skills", href: "/skills", icon: Terminal },
-  { name: "Projects", href: "/projects", icon: Briefcase },
-  { name: "Services", href: "/services", icon: Zap },
-  { name: "Blog", href: "/blog", icon: BookOpen },
-  { name: "Contact", href: "/contact", icon: Mail },
+  { name: "Home", href: "/home", icon: Circle, translationKey: 'nav.home' },
+  { name: "About", href: "/about", icon: User, translationKey: 'nav.about' },
+  { name: "Skills", href: "/skills", icon: Terminal, translationKey: 'nav.skills' },
+  { name: "Projects", href: "/projects", icon: Briefcase, translationKey: 'nav.projects' },
+  { name: "Services", href: "/services", icon: Zap, translationKey: 'nav.services' },
+  { name: "Blog", href: "/blog", icon: BookOpen, translationKey: 'nav.blog' },
+  { name: "Contact", href: "/contact", icon: Mail, translationKey: 'nav.contact' },
 ];
 
 export const timeline = [
@@ -137,7 +137,7 @@ export const projects: Project[] = [
   {
     id: "3",
     title: "Timarh's Cuisines",
-    description: "Artisanal bakery and pastry shop website featuring custom cakes, gourmet donuts, and savory meat pies. Online ordering with delivery to Abuja, Kaduna & Lagos.",
+    description: "Artisanal bakery and pastry shop website featuring custom cakes, gourmet donuts, and savory meat pies. Online ordering with fast local delivery and premium menu experience.",
     image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&h=600&fit=crop",
     tags: ["Food Service", "Ordering", "Responsive", "Local Business"],
     githubUrl: "https://github.com/FutureStack446",
@@ -217,10 +217,10 @@ export const blogPosts: BlogPost[] = [
   {
     id: "1",
     title: "Building Modern E-Commerce Sites in 2024",
-    excerpt: "A deep dive into creating high-converting online stores with Next.js, responsive design, and payment integration for Nigerian businesses.",
+    excerpt: "A deep dive into creating high-converting online stores with Next.js, responsive design, and payment integration for modern businesses.",
     date: "2024-03-15",
     readTime: "8 min read",
-    tags: ["E-Commerce", "Next.js", "Business", "Africa"],
+    tags: ["E-Commerce", "Next.js", "Business", "Growth"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&auto=format&q=75",
     slug: "modern-ecommerce-2024",
     author: "Masroor Ibrahim",
@@ -230,7 +230,7 @@ export const blogPosts: BlogPost[] = [
 
       This article explores the essential strategies for developing modern e-commerce platforms, focusing on responsive design principles that ensure your store looks great and functions flawlessly on any device. We'll delve into the importance of performance optimization, not just for user satisfaction but also for SEO rankings.
 
-      Payment integration is another critical aspect. We'll discuss various secure payment gateways suitable for the Nigerian market and how to implement them effectively. Furthermore, we'll touch upon inventory management systems, customer relationship management (CRM) tools, and analytics integration to provide a holistic view of your e-commerce operations.
+      Payment integration is another critical aspect. We'll discuss various secure payment gateways and how to implement them effectively. Furthermore, we'll touch upon inventory management systems, customer relationship management (CRM) tools, and analytics integration to provide a holistic view of your e-commerce operations.
 
       By combining cutting-edge technologies with a deep understanding of user behavior, you can create an e-commerce experience that not only attracts customers but also fosters loyalty and drives sales.
     `,
@@ -256,13 +256,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "3",
-    title: "SEO Strategies for Local Businesses in Africa",
-    excerpt: "Practical tips to improve your Google rankings and attract more customers in the Nigerian market.",
+    title: "SEO Strategies for Local Businesses",
+    excerpt: "Practical tips to improve your Google rankings and attract more local customers.",
     date: "2024-02-10",
     readTime: "9 min read",
     tags: ["SEO", "Local Business", "Growth"],
     image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&h=800&fit=crop&auto=format&q=75",
-    slug: "seo-nigeria-business",
+    slug: "seo-local-business",
     author: "Masroor Ibrahim",
     featured: true,
     fullContent: `

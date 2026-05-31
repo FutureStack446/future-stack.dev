@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { Heart, ArrowUp, Sparkles, Link as LinkIcon, Circle } from "lucide-react";
 import { personalInfo, socialLinks } from "@/app/lib/data";
+import { useLanguage } from "../context/LanguageContext";
 import Image from "next/image";
 
 export function Footer() {
+  const { t } = useLanguage();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -46,6 +48,7 @@ export function Footer() {
                 alt="FutureStack Logo"
                 fill
                 sizes="48px"
+                priority
                 className="object-cover"
               />
             </div>
@@ -121,11 +124,11 @@ export function Footer() {
           className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground"
         >
           <p className="flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> by {personalInfo.name}
+            {t('footer.madeWith')} <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> {t('footer.by')} {personalInfo.name}
           </p>
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-primary" />
-            <p>© {new Date().getFullYear()} FutureStack. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} FutureStack. {t('footer.rights')}</p>
           </div>
           {personalInfo.phone && (
             <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors">

@@ -6,8 +6,11 @@ import { ProjectCard } from "@/app/components/ProjectCard";
 import { projects, personalInfo } from "@/app/lib/data";
 import { ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Projects() {
+  const { t } = useLanguage();
+
   return (
     <SectionWrapper id="projects" className="relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +22,7 @@ export function Projects() {
             viewport={{ once: true }}
             className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block"
           >
-            Portfolio
+            {t('projects.portfolio')}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +31,7 @@ export function Projects() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Featured Projects
+            {t('projects.featured')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -37,7 +40,7 @@ export function Projects() {
             transition={{ delay: 0.2 }}
             className="text-muted-foreground max-w-2xl mx-auto"
           >
-            A selection of projects that showcase my expertise in design, development, and problem-solving.
+            {t('projects.description')}
           </motion.p>
         </div>
 
@@ -68,7 +71,7 @@ export function Projects() {
             >
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">
                 <Sparkles className="w-4 h-4" />
-                View More on GitHub
+                {t('projects.viewMore')}
                 <ExternalLink className="w-4 h-4" />
               </a>
             </Button>

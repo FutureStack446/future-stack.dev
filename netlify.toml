@@ -49,27 +49,16 @@
 
 # Redirects
 [[redirects]]
-  source = "/api/*"
-  destination = "/.netlify/functions/:splat"
-  status = 200
-
-[[redirects]]
-  source = "/home"
-  destination = "/"
+  from = "/home"
+  to = "/"
   status = 301
   force = true
 
 [[redirects]]
-  source = "/landing"
-  destination = "/"
+  from = "/landing"
+  to = "/"
   status = 301
   force = true
-
-# Handle client-side routing
-[[redirects]]
-  source = "/*"
-  destination = "/index.html"
-  status = 200
 
 # Functions settings
 [functions]

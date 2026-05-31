@@ -6,9 +6,12 @@ import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/app/components/MagneticButton";
 import { AnimatedText, TypewriterText } from "@/app/components/AnimatedText";
 import { personalInfo } from "@/app/lib/data";
+import { useLanguage } from "../context/LanguageContext";
 import Image from "next/image";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
@@ -88,7 +91,7 @@ export default function Hero() {
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
             <AnimatedText
-              text={personalInfo.tagline}
+              text={t('hero.tagline')}
               className="justify-center"
               delay={0.5}
             />
@@ -101,7 +104,7 @@ export default function Hero() {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
             <TypewriterText 
-              text="I design and build exceptional digital experiences that drive results. Specializing in React, Next.js, and premium web solutions for forward-thinking businesses."
+              text={t('hero.description')}
               speed={30}
               delay={1.2}
             />
@@ -122,7 +125,7 @@ export default function Hero() {
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             data-cursor-hover
           >
-            Hire Me
+            {t('hero.hire')}
             <ArrowRight className="w-5 h-5" />
           </Button>
           
@@ -133,8 +136,25 @@ export default function Hero() {
             onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
             data-cursor-hover
           >
-            View Projects
+            {t('hero.projects')}
           </Button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
+          className="grid gap-3 sm:grid-cols-3 mb-12"
+        >
+          {[
+            { label: "Modern Web Design" },
+            { label: "Performance First" },
+            { label: "Client-Focused Solutions" },
+          ].map((item) => (
+            <div key={item.label} className="rounded-full border border-border bg-background/80 px-4 py-3 text-sm font-medium text-muted-foreground shadow-sm">
+              {item.label}
+            </div>
+          ))}
         </motion.div>
 
         {/* Social Links */}

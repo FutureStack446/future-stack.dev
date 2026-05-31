@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { Check, ArrowRight } from "lucide-react";
 import { Service } from "@/app/types";
-import * as LucideIcons from "lucide-react";
 
 interface ServiceCardProps {
   service: Service;
@@ -17,7 +16,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   const primaryHslaLight = "hsla(240, 5.9%, 10%, 1)"; // From :root --primary
   const primaryHslaDark = "hsla(0, 0%, 98%, 1)"; // From .dark --primary
 
-  const IconComponent = (LucideIcons[service.icon as keyof typeof LucideIcons] as React.ComponentType<any>) || LucideIcons.Circle;
+  const IconComponent = service.icon;
 
   return (
     <motion.div

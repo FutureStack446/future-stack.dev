@@ -7,6 +7,7 @@ import Link from "next/link";
 import { blogPosts } from "@/app/lib/data";
 import { BlogCard } from "@/app/components/BlogCard";
 import { PageTransition } from "@/app/components/PageTransition";
+import HeroSection from "@/app/components/HeroSection";
 import { CalendarDays, Clock, ArrowRight, Search, Mail, Tag as TagIcon, X, SortAsc, SortDesc } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -42,31 +43,13 @@ export default function BlogPage() {
     <PageTransition>
       <div className="w-full">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-transparent" />
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-                Insights
-              </span>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Latest from the{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                  Blog
-                </span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Articles, tutorials, and insights on web development, 
-                UI/UX design, and the latest digital trends.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <HeroSection
+          title="Ideas That Help You Build Better"
+          subtitle="Practical insights, tutorials, and industry thinking for modern web development."
+          description="Stay ahead with articles that cover performance, UX, design systems, and building digital experiences that convert."
+          labels={["Practical how-tos", "Design and dev insights", "Growth-driven ideas"]}
+          variant="gradient"
+        />
 
         {/* Filters & Search */}
         <section className="pb-10">

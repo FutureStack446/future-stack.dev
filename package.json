@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "audit:local": "lhci autorun --upload.target=temporary-public-storage",
+    "audit:server": "npm run build && npm run start & npx wait-on http://localhost:3000 && lhci autorun --upload.target=temporary-public-storage",
     "start": "next start",
     "lint": "next lint"
   },
@@ -42,6 +44,8 @@
     "postcss-import": "^15.1.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.0"
+    ,
+    "lhci": "^0.11.0"
   },
   "overrides": {
     "postcss": "^8.4.49"

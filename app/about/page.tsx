@@ -12,9 +12,10 @@ export default function AboutPage() {
       <main className="w-full min-h-screen">
         {/* Mesmerizing Hero Section */}
         <HeroSection 
-          title="About FutureStack"
-          subtitle="Discover the story, mission, and the person behind the digital craft."
-          description="Passionate about creating exceptional digital experiences that drive results and exceed expectations."
+          title="Welcome to FutureStack"
+          subtitle="Where bold ideas become polished digital experiences."
+          description="I build scalable websites, intuitive interfaces, and unforgettable brand journeys that help businesses and founders win online."
+          labels={["Mission-driven web development", "Design-led brand stories", "Growth-focused digital products"]}
           variant="sparkle"
         />
 

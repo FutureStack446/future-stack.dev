@@ -4,16 +4,19 @@ import { motion } from "framer-motion";
 import { Award, Users, Briefcase, Coffee, MapPin, Phone, Mail, LucideIcon } from "lucide-react";
 import { SectionWrapper } from "@/app/components/SectionWrapper";
 import { personalInfo, skills } from "@/app/lib/data";
+import { useLanguage } from "../context/LanguageContext";
 import Image from "next/image";
 
 const stats: { icon: LucideIcon; value: string; label: string }[] = [
-  { icon: Briefcase, value: "4+", label: "Years Experience" },
-  { icon: Users, value: "15+", label: "Happy Clients" },
-  { icon: Award, value: "4", label: "Major Projects" },
-  { icon: Coffee, value: "∞", label: "Cups of Coffee" },
+  { icon: Briefcase, value: "4+", label: "about.stats.experience" },
+  { icon: Users, value: "15+", label: "about.stats.clients" },
+  { icon: Award, value: "4", label: "about.stats.projects" },
+  { icon: Coffee, value: "∞", label: "about.stats.coffee" },
 ];
 
 export function About() {
+  const { t } = useLanguage();
+
   return (
     <SectionWrapper id="about" className="relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,13 +30,10 @@ export function About() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-                About Me
+                {t('about.title')}
               </span>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-                Turning Complex Problems Into{" "}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60">
-                  Elegant Solutions
-                </span>
+                {t('about.description')}
               </h2>
             </motion.div>
 
@@ -69,7 +69,7 @@ export function About() {
             >
               <motion.div className="flex items-center gap-3 text-sm p-4 rounded-xl bg-card border border-border" whileHover={{ x: 5, borderColor: "hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), 0.2)" }}>
                 <MapPin className="w-4 h-4 text-primary" />
-                <span>{personalInfo.location}</span>
+                <span>{personalInfo.location || "Remote-first • Worldwide"}</span>
               </motion.div>
               <motion.div className="flex items-center gap-3 text-sm p-4 rounded-xl bg-card border border-border" whileHover={{ x: 5, borderColor: "hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), 0.2)" }}>
                 <Phone className="w-4 h-4 text-primary" />
@@ -110,7 +110,7 @@ export function About() {
                   >
                     {stat.value}
                   </motion.div>
-                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground">{t(stat.label)}</div>
                 </motion.div>
                 )
               })}
@@ -151,8 +151,8 @@ export function About() {
                         src="/images/logo.jpg"
                         alt="FutureStack Logo"
                         fill
-                      sizes="80px"
-                      priority
+                        sizes="80px"
+                        priority
                         className="object-cover"
                       />
                     </div>
@@ -160,10 +160,6 @@ export function About() {
                   <h3 className="text-2xl font-bold mb-2">{personalInfo.name}</h3>
                   <p className="text-primary font-medium mb-4">{personalInfo.title}</p>
                   <div className="space-y-2 text-sm text-muted-foreground">
-                    <p className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      {personalInfo.location}
-                    </p>
                     <p className="flex items-center gap-2">
                       <Mail className="w-4 h-4" />
                       {personalInfo.email}
