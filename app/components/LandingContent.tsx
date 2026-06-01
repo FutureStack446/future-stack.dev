@@ -23,7 +23,7 @@ export function LandingContent() {
   const isDark = resolvedTheme === "dark";
 
   return (
-      <motion.div className={`relative min-h-screen overflow-x-hidden flex items-center justify-center transition-colors duration-500 ${
+      <motion.div className={`relative min-h-screen overflow-x-hidden flex flex-col items-center justify-start transition-colors duration-500 py-10 sm:py-16 ${
         !mounted 
           ? "bg-black" 
           : isDark
