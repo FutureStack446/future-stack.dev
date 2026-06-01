@@ -24,44 +24,60 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- Projects (Individual project pages if created later) -->
+  <!-- Projects page -->
   <url>
-    <loc>https://futurestack.dev/#projects</loc>
-    <lastmod>2024-04-27</lastmod>
+    <loc>https://futurestack.dev/projects</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- About Section -->
+  <!-- About page -->
   <url>
-    <loc>https://futurestack.dev/#about</loc>
-    <lastmod>2024-04-27</lastmod>
+    <loc>https://futurestack.dev/about</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Skills Section -->
+  <!-- Skills page -->
   <url>
-    <loc>https://futurestack.dev/#skills</loc>
-    <lastmod>2024-04-27</lastmod>
+    <loc>https://futurestack.dev/skills</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Services Section -->
+  <!-- Services page -->
   <url>
-    <loc>https://futurestack.dev/#services</loc>
-    <lastmod>2024-04-27</lastmod>
+    <loc>https://futurestack.dev/services</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact Section -->
+  <!-- Contact page -->
   <url>
-    <loc>https://futurestack.dev/#contact</loc>
-    <lastmod>2024-04-27</lastmod>
+    <loc>https://futurestack.dev/contact</loc>
+    <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Blog index -->
+  <url>
+    <loc>https://futurestack.dev/blog</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Resume page -->
+  <url>
+    <loc>https://futurestack.dev/resume</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
