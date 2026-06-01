@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://futurestack.dev"),
+  metadataBase: new URL("https://future-stackdev.netlify.app"),
   referrer: "origin-when-cross-origin",
   formatDetection: {
     email: false,
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://futurestack.dev",
+    url: "https://future-stackdev.netlify.app",
     title: "Masroor Ibrahim | FutureStack - Web Designer & Developer",
     description: "FutureStack is a portfolio and web development studio building high-performance digital experiences that help businesses grow.",
     siteName: "FutureStack",
@@ -109,7 +109,7 @@ function StructuredData() {
     name: personalInfo.name,
     jobTitle: personalInfo.title,
     description: personalInfo.tagline,
-    url: "https://futurestack.dev",
+    url: "https://future-stackdev.netlify.app",
     // FIX 3: Filter out undefined/empty social links
     sameAs: [
       personalInfo.github,

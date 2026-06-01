@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://futurestack.dev/sitemap.xml
+Sitemap: https://future-stackdev.netlify.app/sitemap.xml
 
 # Disallow admin or private pages (if any)
 Disallow: /admin/

@@ -2,7 +2,7 @@
 
 **Web Designer & Developer** 
 
-[futurestack.dev](https://futurestack.dev) | [futurestack59@gmail.com](mailto:futurestack59@gmail.com) | +234 9121870209
+[future-stackdev.netlify.app](https://future-stackdev.netlify.app) | [futurestack59@gmail.com](mailto:futurestack59@gmail.com) | +234 9121870209
 [LinkedIn](https://www.linkedin.com/in/masroor-ibrahim-861359375) | [GitHub](https://github.com/FutureStack446)
 
 ---

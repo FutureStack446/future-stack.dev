@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Home | Masroor Ibrahim | FutureStack - Web Designer & Developer",
     description: "Premium web design and development services. Crafting digital experiences that convert.",
     type: "website",
-    url: "https://futurestack.dev/home",
+    url: "https://future-stackdev.netlify.app/home",
   },
 };
 

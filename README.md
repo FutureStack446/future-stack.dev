@@ -172,7 +172,7 @@ This project is licensed under the MIT License.
 
 **Masroor Ibrahim**
 - Email: futurestack59@gmail.com
-- Website: [futurestack.dev](https://futurestack.dev)
+- Website: [future-stackdev.netlify.app](https://future-stackdev.netlify.app)
 - LinkedIn: [Masroor Ibrahim](https://www.linkedin.com/in/masroor-ibrahim-861359375)
 
 ---
