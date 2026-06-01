@@ -49,12 +49,6 @@
 
 # Redirects
 [[redirects]]
-  from = "/home"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/landing"
   to = "/"
   status = 301
