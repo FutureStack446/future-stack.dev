@@ -8,6 +8,7 @@ import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "./context/LanguageContext";
+import { Analytics } from "@/app/components/Analytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -110,6 +111,12 @@ function StructuredData() {
     jobTitle: personalInfo.title,
     description: personalInfo.tagline,
     url: "https://future-stackdev.netlify.app",
+    image: {
+      "@type": "ImageObject",
+      url: "https://future-stackdev.netlify.app/images/logo.jpg",
+      width: 1200,
+      height: 630,
+    },
     // FIX 3: Filter out undefined/empty social links
     sameAs: [
       personalInfo.github,
@@ -169,6 +176,7 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
+              <Analytics />
               <a href="#main-content" className="skip-link">
                 Skip to main content
               </a>
