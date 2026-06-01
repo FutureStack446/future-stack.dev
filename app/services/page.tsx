@@ -166,7 +166,7 @@ const TestimonialSlider = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="p-8 rounded-3xl bg-card border border-border shadow-lg"
+            className="p-6 sm:p-8 rounded-3xl bg-card border border-border shadow-lg"
           >
             <div className="flex justify-center mb-4"> 
               {[...Array(NUMBER_OF_STARS)].map((_, i) => (
@@ -222,15 +222,15 @@ const PackageComparisonTable = () => {
         </motion.div>
 
         <div className="overflow-x-auto rounded-xl border border-border shadow-lg">
-          <table className="min-w-full w-full text-left text-sm text-muted-foreground">
+          <table className="min-w-full w-full text-left text-xs sm:text-sm text-muted-foreground">
             <thead className="bg-card/50 uppercase">
               <tr>
-                <th scope="col" className="px-6 py-4 font-bold text-foreground">Feature</th>
+                <th scope="col" className="px-3 sm:px-6 py-3 sm:py-4 font-bold text-foreground text-xs sm:text-sm">Feature</th>
                 {packages.map((pkg) => (
                   <th 
                     key={pkg.name} 
                     scope="col" 
-                    className="px-6 py-4 font-bold text-foreground text-center"
+                    className="px-3 sm:px-6 py-3 sm:py-4 font-bold text-foreground text-center text-xs sm:text-sm"
                   >
                     {pkg.name}
                   </th>
@@ -247,22 +247,22 @@ const PackageComparisonTable = () => {
                   transition={{ delay: index * 0.05 }}
                   className={`border-b border-border ${index % 2 === 0 ? "bg-card" : "bg-background"}`}
                 >
-                  <th scope="row" className="px-6 py-4 font-medium text-foreground break-words text-left">
+                  <th scope="row" className="px-3 sm:px-6 py-3 sm:py-4 font-medium text-foreground break-words text-left text-xs sm:text-sm">
                     {featureName}
                   </th>
                   {packages.map((pkg) => (
                     <td 
                       key={`${pkg.name}-${featureName}`} 
-                      className="px-6 py-4 text-center"
+                      className="px-3 sm:px-6 py-3 sm:py-4 text-center"
                     >
                       {pkg.features.includes(featureName) ? (
                         <div className="flex justify-center">
-                          <Check className="w-5 h-5 text-green-500" aria-hidden="true" />
+                          <Check className="w-4 sm:w-5 h-4 sm:h-5 text-green-500" aria-hidden="true" />
                           <span className="sr-only">Included in {pkg.name}</span>
                         </div>
                       ) : (
                         <div className="flex justify-center">
-                          <X className="w-5 h-5 text-muted-foreground/30" aria-hidden="true" />
+                          <X className="w-4 sm:w-5 h-4 sm:h-5 text-muted-foreground/30" aria-hidden="true" />
                           <span className="sr-only">Not included in {pkg.name}</span>
                         </div>
                       )}
@@ -320,7 +320,7 @@ export default function ServicesPage() {
                   animate={{ opacity: 1, y: 0 }} // Ensure visible by default
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-6 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all duration-300 group"
+                  className="p-4 sm:p-6 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6 text-primary" />
@@ -366,7 +366,7 @@ export default function ServicesPage() {
                   animate={{ opacity: 1, y: 0 }} // Ensure visible by default
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`relative p-8 rounded-3xl bg-card border flex flex-col h-full ${
+                  className={`relative p-6 sm:p-8 rounded-3xl bg-card border flex flex-col h-full ${
                     pkg.popular 
                       ? "border-primary shadow-2xl shadow-primary/10 lg:scale-[1.05] z-10" 
                       : "border-border"

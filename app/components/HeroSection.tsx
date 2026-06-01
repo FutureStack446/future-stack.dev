@@ -192,7 +192,7 @@ export default function HeroSection({
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[65vh] sm:min-h-[70vh] flex items-center justify-center overflow-hidden pt-14 sm:pt-20"
+      className="relative min-h-screen sm:min-h-[70vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-20"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

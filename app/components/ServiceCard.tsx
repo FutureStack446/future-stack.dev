@@ -29,7 +29,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         borderColor: isDark ? primaryHslaDark : primaryHslaLight, // Use explicit HSLA values
         transition: { duration: 0.3 }
       }}
-      className="group relative p-6 sm:p-8 rounded-2xl bg-card border border-border transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 overflow-hidden"
+      className="group relative p-4 sm:p-6 md:p-8 rounded-2xl bg-card border border-border transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 overflow-hidden"
     >
       {/* Glow Effect */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

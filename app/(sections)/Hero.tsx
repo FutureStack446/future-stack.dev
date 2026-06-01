@@ -89,7 +89,7 @@ export default function Hero() {
             Hi, I&apos;m <span className="text-primary font-semibold">{personalInfo.name}</span>
           </motion.p>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
             <AnimatedText
               text={t('hero.tagline')}
               className="justify-center"
@@ -116,12 +116,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full sm:w-auto px-4 sm:px-0"
         >
           <Button
             size="xl"
             variant="gradient"
-            className="gap-2 text-lg glow-primary"
+            className="gap-2 text-lg glow-primary w-full sm:w-auto"
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
             data-cursor-hover
           >
@@ -132,7 +132,7 @@ export default function Hero() {
           <Button
             size="xl"
             variant="outline"
-            className="gap-2 text-lg"
+            className="gap-2 text-lg w-full sm:w-auto"
             onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
             data-cursor-hover
           >
@@ -144,14 +144,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          className="grid gap-3 sm:grid-cols-3 mb-12"
+          className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-3 mb-12 max-w-3xl"
         >
           {[
             { label: "Modern Web Design" },
             { label: "Performance First" },
             { label: "Client-Focused Solutions" },
           ].map((item) => (
-            <div key={item.label} className="rounded-full border border-border bg-background/80 px-4 py-3 text-sm font-medium text-muted-foreground shadow-sm">
+            <div key={item.label} className="rounded-full border border-border bg-background/80 px-4 py-2 sm:py-3 text-xs sm:text-sm font-medium text-muted-foreground shadow-sm text-center">
               {item.label}
             </div>
           ))}
@@ -162,7 +162,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.6 }}
-          className="flex items-center justify-center gap-6"
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6"
         >
           {[
             { icon: Github, href: personalInfo.github, label: "GitHub" },
