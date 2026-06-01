@@ -106,7 +106,7 @@ export function LandingContent() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className={`text-3xl sm:text-4xl md:text-7xl lg:text-6xl font-bold mb-6 text-wrap ${
+                className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 break-words whitespace-normal max-w-full ${
                   isDark 
                     ? "bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
                     : "bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent"
@@ -130,12 +130,12 @@ export function LandingContent() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex justify-center lg:justify-start"
+                className="w-full flex justify-center lg:justify-start"
               >
                 <Link
                   href="/home"
                   prefetch={false}
-                  className={`inline-flex items-center gap-4 px-12 py-6 rounded-full font-bold text-xl hover:scale-110 transition-all duration-500 group shadow-2xl ${
+                  className={`inline-flex w-full sm:w-auto items-center justify-center gap-4 px-6 py-4 sm:px-12 sm:py-5 rounded-full font-bold text-base sm:text-xl hover:scale-105 transition-all duration-500 group shadow-2xl ${
                     isDark
                       ? "bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 text-white hover:from-purple-700 hover:via-pink-700 hover:to-purple-700 hover:shadow-purple-500/25 border-2 border-purple-400/50"
                       : "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 hover:shadow-blue-500/25 border-2 border-blue-400/50"

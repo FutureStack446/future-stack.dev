@@ -222,7 +222,7 @@ const PackageComparisonTable = () => {
         </motion.div>
 
         <div className="overflow-x-auto rounded-xl border border-border shadow-lg">
-          <table className="w-full text-left text-sm text-muted-foreground">
+          <table className="min-w-full w-full text-left text-sm text-muted-foreground">
             <thead className="bg-card/50 uppercase">
               <tr>
                 <th scope="col" className="px-6 py-4 font-bold text-foreground">Feature</th>
@@ -247,7 +247,7 @@ const PackageComparisonTable = () => {
                   transition={{ delay: index * 0.05 }}
                   className={`border-b border-border ${index % 2 === 0 ? "bg-card" : "bg-background"}`}
                 >
-                  <th scope="row" className="px-6 py-4 font-medium text-foreground whitespace-nowrap">
+                  <th scope="row" className="px-6 py-4 font-medium text-foreground break-words text-left">
                     {featureName}
                   </th>
                   {packages.map((pkg) => (
