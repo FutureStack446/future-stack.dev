@@ -286,7 +286,7 @@ export default function HeroSection({
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-6"
         >
-          <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight break-words leading-tight mx-auto max-w-2xl ${
+          <h1 className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight break-normal whitespace-normal leading-tight mx-auto max-w-full ${
             variant === 'sparkle' ? 'bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60' : ''
           }`}>
             <AnimatedTitle text={title} delay={0.5} />

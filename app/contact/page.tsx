@@ -5,17 +5,20 @@ import { Contact } from "@/app/(sections)/Contact";
 import { PageTransition } from "@/app/components/PageTransition";
 import HeroSection from "@/app/components/HeroSection";
 import { Mail, MessageSquare, Clock, Sparkles } from "lucide-react";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+
   return (
     <PageTransition>
       <div className="w-full">
         {/* Hero Section */}
         <HeroSection
-          title="Let's Build Something Exceptional"
-          subtitle="Ready to launch your next website or app? I’m here to help you turn bold ideas into polished online experiences."
-          description="From fast MVPs to full-featured digital products, I create websites and apps that attract clients, build trust, and support your business goals."
-          labels={["Response within 24 hours", "Available for new projects", "Flexible remote collaboration"]}
+          title={t('contact.hero.title')}
+          subtitle={t('contact.hero.subtitle')}
+          description={t('contact.hero.description')}
+          labels={[t('contact.hero.label1'), t('contact.hero.label2'), t('contact.hero.label3')]}
           variant="sparkle"
         />
 

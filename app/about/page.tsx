@@ -5,17 +5,20 @@ import { Process } from "@/app/(sections)/Process";
 import { Testimonials } from "@/app/(sections)/Testimonials";
 import { PageTransition } from "@/app/components/PageTransition";
 import HeroSection from "@/app/components/HeroSection";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
   return (
     <PageTransition>
       <main className="w-full min-h-screen">
         {/* Mesmerizing Hero Section */}
         <HeroSection 
-          title="Welcome to FutureStack"
-          subtitle="Where bold ideas become polished digital experiences."
-          description="I build scalable websites, intuitive interfaces, and unforgettable brand journeys that help businesses and founders win online."
-          labels={["Mission-driven web development", "Design-led brand stories", "Growth-focused digital products"]}
+          title={t('about.hero.title')}
+          subtitle={t('about.hero.subtitle')}
+          description={t('about.hero.description')}
+          labels={[t('about.hero.label1'), t('about.hero.label2'), t('about.hero.label3')]}
           variant="sparkle"
         />
 

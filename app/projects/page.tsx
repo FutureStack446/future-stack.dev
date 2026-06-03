@@ -6,12 +6,14 @@ import { projects } from "@/app/lib/data";
 import { ProjectCard } from "@/app/components/ProjectCard";
 import { PageTransition } from "@/app/components/PageTransition";
 import HeroSection from "@/app/components/HeroSection";
+import { useLanguage } from "@/app/context/LanguageContext";
 import { Search, X, Code2, Briefcase, TrendingUp, Star, ArrowRight, ListFilter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function ProjectsPage() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState<"featured" | "newest">("featured");
@@ -44,10 +46,10 @@ export default function ProjectsPage() {
       <div className="w-full">
         {/* Hero Section */}
         <HeroSection
-          title="Work That Makes an Impact"
-          subtitle="Discover carefully crafted digital products built for growth, engagement, and strong brand presence."
-          description="Browse website and app projects designed to support business goals, delight users, and convert visitors into customers."
-          labels={["Strategy-led builds", "Performance-first UX", "Real-world impact"]}
+          title={t('projects.hero.title')}
+          subtitle={t('projects.hero.subtitle')}
+          description={t('projects.hero.description')}
+          labels={[t('projects.hero.label1'), t('projects.hero.label2'), t('projects.hero.label3')]}
           variant="gradient"
         />
 

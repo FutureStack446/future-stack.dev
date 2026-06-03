@@ -8,12 +8,14 @@ import { blogPosts } from "@/app/lib/data";
 import { BlogCard } from "@/app/components/BlogCard";
 import { PageTransition } from "@/app/components/PageTransition";
 import HeroSection from "@/app/components/HeroSection";
+import { useLanguage } from "@/app/context/LanguageContext";
 import { CalendarDays, Clock, ArrowRight, Search, Mail, Tag as TagIcon, X, SortAsc, SortDesc } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BlogPost } from "@/app/types"; // Import BlogPost type
 
 export default function BlogPage() {
+  const { t } = useLanguage();
   const featuredPost = blogPosts.find((post) => post.featured) || blogPosts[0];
   
   const [searchQuery, setSearchQuery] = useState("");
@@ -44,10 +46,10 @@ export default function BlogPage() {
       <div className="w-full">
         {/* Hero Section */}
         <HeroSection
-          title="Ideas That Help You Build Better"
-          subtitle="Practical insights, tutorials, and industry thinking for modern web development."
-          description="Stay ahead with articles that cover performance, UX, design systems, and building digital experiences that convert."
-          labels={["Practical how-tos", "Design and dev insights", "Growth-driven ideas"]}
+          title={t('blog.hero.title')}
+          subtitle={t('blog.hero.subtitle')}
+          description={t('blog.hero.description')}
+          labels={[t('blog.hero.label1'), t('blog.hero.label2'), t('blog.hero.label3')]}
           variant="gradient"
         />
 

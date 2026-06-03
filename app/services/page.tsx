@@ -28,6 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useMemo } from "react";
 import { testimonials } from "@/app/lib/data";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 
 // Constants for better readability and maintainability
@@ -279,14 +280,16 @@ const PackageComparisonTable = () => {
 };
 
 export default function ServicesPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <HeroSection
-        title="Bespoke Development, Designed to Convert"
-        subtitle="Solutions crafted for brands that need a polished digital presence and measurable growth."
-        description="From launch-ready websites to high-performance web applications, every project is built to impress visitors and drive business value."
-        labels={["Custom web products", "E-commerce growth", "Conversion-focused design"]}
+        title={t('services.hero.title')}
+        subtitle={t('services.hero.subtitle')}
+        description={t('services.hero.description')}
+        labels={[t('services.hero.label1'), t('services.hero.label2'), t('services.hero.label3')]}
         variant="sparkle"
       />
 

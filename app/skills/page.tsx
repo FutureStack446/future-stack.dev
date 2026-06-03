@@ -7,6 +7,7 @@ import { SkillBar } from "@/app/components/SkillBar";
 import { PageTransition } from "@/app/components/PageTransition";
 import HeroSection from "@/app/components/HeroSection";
 import { skills } from "@/app/lib/data";
+import { useLanguage } from "@/app/context/LanguageContext";
 import {
   Code2,
   Briefcase,
@@ -46,6 +47,7 @@ const certifications = [
 ];
 
 export default function SkillsPage() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const filteredSkills = skills.filter((s) => s.category === activeCategory);
 
@@ -54,10 +56,10 @@ export default function SkillsPage() {
       <div className="w-full">
         {/* Hero Section */}
         <HeroSection
-          title="Mastery in Modern Web Development"
-          subtitle="A powerful toolkit of design, development, and performance skills for brands that demand excellence."
-          description="I transform ideas into fast, user-first websites and apps that feel polished, perform beautifully, and build trust online."
-          labels={["Real client work", "Modern toolchain", "Design to deployment"]}
+          title={t('skills.hero.title')}
+          subtitle={t('skills.hero.subtitle')}
+          description={t('skills.hero.description')}
+          labels={[t('skills.hero.label1'), t('skills.hero.label2'), t('skills.hero.label3')]}
           variant="gradient"
         />
 
