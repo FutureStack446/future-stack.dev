@@ -125,6 +125,7 @@ const benefits: Benefit[] = [
 
 // Testimonial Slider Component
 const TestimonialSlider = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -150,13 +151,13 @@ const TestimonialSlider = () => {
           className="mb-12"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Client Success
+            {t('services.testimonials.heading')}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            What My Clients Say
+            {t('services.testimonials.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hear directly from businesses that have partnered with FutureStack to achieve their digital goals.
+            {t('services.testimonials.description')}
           </p>
         </motion.div>
 
@@ -306,10 +307,10 @@ export default function ServicesPage() {
             className="text-center mb-16"
           >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-              Advantages
+              {t('services.advantages')}
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Why Partner With FutureStack
+              {t('services.advantagesTitle')}
             </h2>
           </motion.div>
 
@@ -349,13 +350,13 @@ export default function ServicesPage() {
             className="text-center mb-16"
           >
             <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
-              Pricing
+              {t('services.pricing.title')}
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Service Packages
+              {t('services.packages.title')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Transparent investment models designed to suit businesses at different stages of growth.
+              {t('services.pricing.description')}
             </p>
           </motion.div>
 
@@ -378,7 +379,7 @@ export default function ServicesPage() {
                   {pkg.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-xs font-bold rounded-full flex items-center gap-1">
                       <Sparkles className="w-3 h-3" />
-                      MOST POPULAR
+                      {t('services.mostPopular')}
                     </div>
                   )}
 
@@ -408,7 +409,7 @@ export default function ServicesPage() {
                     asChild
                   >
                     <Link href="/contact">
-                      Get Started
+                      {t('services.getStarted')}
                     </Link>
                   </Button>
                 </motion.div>

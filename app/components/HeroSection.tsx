@@ -2,6 +2,7 @@
 
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 interface HeroSectionProps {
   title: string;
@@ -105,25 +106,25 @@ const SparkleEffect = () => {
   );
 };
 
-// Animated text with character-by-character reveal
+// Animated title with word-level reveal (better wrapping on small screens)
 const AnimatedTitle = ({ text, delay = 0 }: { text: string; delay?: number }) => {
-  const letters = text.split('');
-  
+  const words = text.split(' ');
+
   return (
     <div className="inline-flex flex-wrap justify-center overflow-hidden break-words text-center">
-      {letters.map((letter, i) => (
+      {words.map((word, i) => (
         <motion.span
           key={i}
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            duration: 0.5,
-            delay: delay + i * 0.03,
+            duration: 0.45,
+            delay: delay + i * 0.08,
             ease: "easeOut",
           }}
-          className="inline-block"
+          className="inline-block mr-2"
         >
-          {letter === ' ' ? '\u00A0' : letter}
+          {word}
         </motion.span>
       ))}
     </div>
@@ -166,6 +167,7 @@ export default function HeroSection({
   showParticles = true, 
   variant = 'default' 
 }: HeroSectionProps) {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -192,7 +194,7 @@ export default function HeroSection({
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen sm:min-h-[70vh] flex items-center justify-center overflow-hidden pt-20 sm:pt-20"
+      className="relative min-h-[70vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-20"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -334,24 +336,24 @@ export default function HeroSection({
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="text-center"
           >
-            <div className="text-3xl md:text-4xl font-bold text-primary">4+</div>
-            <div className="text-sm text-muted-foreground mt-1">Years Experience</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">4+</div>
+              <div className="text-sm text-muted-foreground mt-1">{t('hero.stats.experience')}</div>
           </motion.div>
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="text-center"
           >
-            <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
-            <div className="text-sm text-muted-foreground mt-1">Projects Completed</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">50+</div>
+              <div className="text-sm text-muted-foreground mt-1">{t('hero.stats.projects')}</div>
           </motion.div>
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="text-center"
           >
-            <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
-            <div className="text-sm text-muted-foreground mt-1">Client Satisfaction</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">100%</div>
+              <div className="text-sm text-muted-foreground mt-1">{t('hero.stats.satisfaction')}</div>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -368,7 +370,7 @@ export default function HeroSection({
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
+          <span className="text-xs text-muted-foreground uppercase tracking-widest">{t('common.scroll')}</span>
           <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2">
             <motion.div
               animate={{ opacity: [1, 0, 1], y: [0, 8, 0] }}
